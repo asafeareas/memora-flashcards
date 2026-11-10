@@ -15,6 +15,10 @@ Crie decks, estude com SM-2 ou FSRS, use cloze, LaTeX, oclusão de imagem e IA, 
 ![Testes](https://img.shields.io/badge/testes-27%20passando-22a565)
 ![Offline](https://img.shields.io/badge/offline-first-0ea5e9)
 
+### [▶ Experimente agora: memora-flashcards-silk.vercel.app](https://memora-flashcards-silk.vercel.app)
+
+<sub>Sem cadastro. Os dados ficam só no seu navegador.</sub>
+
 <img src="docs/screenshots/home.png" alt="Tela inicial do Memora com pastas, decks e cartões para hoje" width="900" />
 
 </div>
@@ -98,7 +102,7 @@ Crie decks, estude com SM-2 ou FSRS, use cloze, LaTeX, oclusão de imagem e IA, 
 
 ## Começando
 
-Requer **Node.js 22.23+ ou 24.22+**.
+Quer só usar? Abra a **[demo online](https://memora-flashcards-silk.vercel.app)**. Para rodar localmente, você precisa do **Node.js 22.23+ ou 24.22+**.
 
 ```bash
 git clone https://github.com/asafeareas/memora-flashcards.git
