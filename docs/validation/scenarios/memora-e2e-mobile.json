@@ -1,0 +1,29 @@
+{
+  "browser": { "mode": "launch", "executable_path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe" },
+  "start_url": { "url": "http://localhost:5180/" },
+  "environment": { "viewport": { "width": 390, "height": 844 }, "locale": "pt-BR" },
+  "actions": [
+    { "step_id": "home-empty", "action": "wait_for_timeout", "duration_ms": 2500 },
+    { "step_id": "open-new-deck", "action": "click", "locator": { "kind": "css", "selector": ".start-tile:has-text('Criar manualmente')" }, "timeout_ms": 8000 },
+    { "step_id": "deck-name", "action": "fill", "locator": { "kind": "css", "selector": "#deck-name" }, "value": { "source": "literal", "value": "Anatomia humana" }, "timeout_ms": 8000 },
+    { "step_id": "create-deck", "action": "click", "locator": { "kind": "css", "selector": ".modal__foot .btn--primary" }, "timeout_ms": 8000 },
+    { "step_id": "deck-empty", "action": "wait_for_timeout", "duration_ms": 1500 },
+    { "step_id": "open-editor", "action": "click", "locator": { "kind": "css", "selector": ".page-head__actions a:has-text('Adicionar cartões')" }, "timeout_ms": 8000 },
+    { "step_id": "editor-ready", "action": "wait_for", "locator": { "kind": "css", "selector": ".rte__content[aria-label='Frente']" }, "state": "visible", "timeout_ms": 10000 },
+    { "step_id": "front", "action": "fill", "locator": { "kind": "css", "selector": ".rte__content[aria-label='Frente']" }, "value": { "source": "literal", "value": "Qual é o maior osso do corpo humano?" }, "timeout_ms": 8000 },
+    { "step_id": "back", "action": "fill", "locator": { "kind": "css", "selector": ".rte__content[aria-label='Verso']" }, "value": { "source": "literal", "value": "Fêmur" }, "timeout_ms": 8000 },
+    { "step_id": "save-card", "action": "click", "locator": { "kind": "css", "selector": ".editor-actions button:text-is('Salvar')" }, "timeout_ms": 8000 },
+    { "step_id": "cards-tab", "action": "wait_for", "locator": { "kind": "css", "selector": ".note-row" }, "state": "visible", "timeout_ms": 10000 },
+    { "step_id": "general-tab", "action": "click", "locator": { "kind": "role", "role": "tab", "name": "Geral" }, "timeout_ms": 8000 },
+    { "step_id": "deck-general", "action": "wait_for_timeout", "duration_ms": 1000 },
+    { "step_id": "start-study", "action": "click", "locator": { "kind": "css", "selector": "a:has-text('Estudar cartões')" }, "timeout_ms": 8000 },
+    { "step_id": "study-front", "action": "wait_for", "locator": { "kind": "css", "selector": ".study-card" }, "state": "visible", "timeout_ms": 10000 },
+    { "step_id": "flip", "action": "press", "locator": { "kind": "css", "selector": "body" }, "key": "Space", "timeout_ms": 5000 },
+    { "step_id": "study-back", "action": "wait_for", "locator": { "kind": "css", "selector": ".rate-row" }, "state": "visible", "timeout_ms": 5000 },
+    { "step_id": "rate-good", "action": "press", "locator": { "kind": "css", "selector": "body" }, "key": "4", "timeout_ms": 5000 },
+    { "step_id": "complete", "action": "wait_for", "locator": { "kind": "css", "selector": ".learn--complete" }, "state": "visible", "timeout_ms": 10000 },
+    { "step_id": "reload-home", "action": "goto", "destination": { "url": "http://localhost:5180/" }, "wait_until": "load" },
+    { "step_id": "home-after-reload", "action": "wait_for", "locator": { "kind": "css", "selector": ".deck-row" }, "state": "visible", "timeout_ms": 10000 }
+  ],
+  "capture": { "after_each_step": ["url", "screenshot"] }
+}

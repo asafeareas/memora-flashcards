@@ -1,0 +1,31 @@
+{
+  "browser": { "mode": "launch", "executable_path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe" },
+  "start_url": { "url": "http://localhost:5180/" },
+  "environment": { "viewport": { "width": 1440, "height": 900 }, "locale": "pt-BR" },
+  "actions": [
+    { "step_id": "home", "action": "wait_for_timeout", "duration_ms": 2000 },
+    { "step_id": "new-deck", "action": "click", "locator": { "kind": "css", "selector": ".start-tile:has-text('Criar manualmente')" }, "timeout_ms": 8000 },
+    { "step_id": "deck-name", "action": "fill", "locator": { "kind": "css", "selector": "#deck-name" }, "value": { "source": "literal", "value": "Mapas" } },
+    { "step_id": "create", "action": "click", "locator": { "kind": "css", "selector": ".modal__foot .btn--primary" }, "timeout_ms": 8000 },
+    { "step_id": "deck", "action": "wait_for", "locator": { "kind": "css", "selector": ".study-panel" }, "state": "visible", "timeout_ms": 8000 },
+    { "step_id": "editor", "action": "click", "locator": { "kind": "css", "selector": ".page-head__actions a:has-text('Adicionar cartões')" }, "timeout_ms": 8000 },
+    { "step_id": "occl-tab", "action": "click", "locator": { "kind": "role", "role": "tab", "name": "Oclusão de imagem" }, "timeout_ms": 10000 },
+    { "step_id": "search-open", "action": "click", "locator": { "kind": "css", "selector": ".occl-empty button:has-text('Buscar imagem')" }, "timeout_ms": 8000 },
+    { "step_id": "search-q", "action": "fill", "locator": { "kind": "css", "selector": ".modal input" }, "value": { "source": "literal", "value": "periodic table of elements" } },
+    { "step_id": "search-go", "action": "press", "locator": { "kind": "css", "selector": ".modal input" }, "key": "Enter" },
+    { "step_id": "results", "action": "wait_for", "locator": { "kind": "css", "selector": ".image-grid__cell >> nth=0" }, "state": "visible", "timeout_ms": 20000 },
+    { "step_id": "pick", "action": "click", "locator": { "kind": "css", "selector": ".image-grid__cell >> nth=0" }, "timeout_ms": 8000 },
+    { "step_id": "builder", "action": "wait_for", "locator": { "kind": "css", "selector": ".occl-builder" }, "state": "visible", "timeout_ms": 30000 },
+    { "step_id": "detect", "action": "click", "locator": { "kind": "css", "selector": "button:has-text('Detectar texto')" }, "timeout_ms": 8000 },
+    { "step_id": "masks", "action": "wait_for", "locator": { "kind": "css", "selector": ".occl__mask--edit >> nth=0" }, "state": "visible", "timeout_ms": 120000 },
+    { "step_id": "settle", "action": "wait_for_timeout", "duration_ms": 1500 },
+    { "step_id": "save", "action": "click", "locator": { "kind": "css", "selector": ".editor-actions button:text-is('Salvar')" }, "timeout_ms": 8000 },
+    { "step_id": "cards", "action": "wait_for", "locator": { "kind": "css", "selector": ".note-list" }, "state": "visible", "timeout_ms": 10000 },
+    { "step_id": "general", "action": "click", "locator": { "kind": "role", "role": "tab", "name": "Geral" }, "timeout_ms": 8000 },
+    { "step_id": "study", "action": "click", "locator": { "kind": "css", "selector": "a:has-text('Estudar cartões')" }, "timeout_ms": 8000 },
+    { "step_id": "front", "action": "wait_for", "locator": { "kind": "css", "selector": ".occl" }, "state": "visible", "timeout_ms": 10000 },
+    { "step_id": "flip", "action": "press", "locator": { "kind": "css", "selector": "body" }, "key": "Space" },
+    { "step_id": "back", "action": "wait_for", "locator": { "kind": "css", "selector": ".rate-row" }, "state": "visible", "timeout_ms": 5000 }
+  ],
+  "capture": { "after_each_step": ["url", "screenshot"] }
+}
